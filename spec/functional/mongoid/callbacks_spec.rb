@@ -3,7 +3,7 @@ require "spec_helper"
 describe Mongoid::Callbacks do
 
   before do
-    [ Band, ParentDoc, ValidationCallback ].each(&:delete_all)
+    [ Person, Band, ParentDoc, ValidationCallback ].each(&:delete_all)
   end
 
   context "when cascading callbacks" do
@@ -11,7 +11,7 @@ describe Mongoid::Callbacks do
     context "when cascading after initialize" do
 
       let!(:person) do
-        Person.create
+        Person.create!
       end
 
       before do
